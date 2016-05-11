@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="weather">
+<head>
+  <meta charset="UTF-8">
+  <title>Docker Compose 教學範例</title>
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body ng-controller="WeatherController">
+  <div class="container">
+    <div class="row">
+       <div class="col-md-4"></div>
+       <div class="col-md-4">
+         <h1>現在時間: {{ time.hour }}:{{ time.minute }}:{{ time.second }}</h1>
+         <h3 style="color: red">上次更新: {{ state.time }}</h3>
+       </div>
+       <div class="col-md-4"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-4" style="height: 20em;padding-top: 60px">
+        <h1 style="text-align: -webkit-right">{{ state.centigrade }}°C</h1>
+        <h1 style="text-align: -webkit-right">{{ state.fahrenheit }}°F</h1>
+      </div>
+      <div class="col-md-4" style="text-align: center">
+        <div class="icon sun-shower" ng-show="state.sunShower">
+          <div class="cloud"></div>
+          <div class="sun">
+          <div class="rays"></div>
+        </div>
+        <div class="rain"></div>
+        </div>
+        <div class="icon thunder-storm" ng-show="state.thunderStorm">
+          <div class="cloud"></div>
+          <div class="lightning">
+            <div class="bolt"></div>
+            <div class="bolt"></div>
+          </div>
+        </div>
+        <div class="icon cloudy" ng-show="state.weather == '多雲' || state.weather == '陰'">
+          <div class="cloud"></div>
+          <div class="cloud"></div>
+        </div>
+        <div class="icon flurries" ng-show="state.flurries">
+          <div class="cloud"></div>
+          <div class="snow">
+            <div class="flake"></div>
+            <div class="flake"></div>
+          </div>
+        </div>
+        <div class="icon sunny" ng-show="state.weather == '晴' || state.weather == '-' || state.weather == 'X'">
+          <div class="sun">
+            <div class="rays"></div>
+          </div>
+        </div>
+        <div class="icon rainy" ng-show="state.weather == '雨'">
+          <div class="cloud"></div>
+          <div class="rain"></div>
+        </div>
+      </div>
+      <div class="col-md-4" style="height: 20em;padding-top: 40px">
+        <div>
+          <img src="img/drop.png" alt="drop" style="float: left;margin-right: 10px">
+          <h3>{{ state.humidity }}</h3>
+        </div>
+        <div>
+          <img src="img/wind.png" alt="wind" style="float: left;margin-right: 10px">
+          <h3>>{{ state.wind_power }}</h3>
+        </div>
+        <div>
+          <img src="img/wind-blowing.png" alt="wind-blowing" style="float: left;margin-right: 10px">
+          <h3>>{{ state.wind_direction }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="angular.min.js"></script>
+<script src="index.js"></script>
+</html>

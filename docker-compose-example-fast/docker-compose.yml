@@ -1,0 +1,26 @@
+version: '2'
+services:
+  db:
+    image: cijie/weather-db:1.0.0
+    container_name: db
+    ports:
+      - 3306:3306
+  crawler:
+    image: cijie/weather-crawler:1.0.3
+    container_name: crawler
+    environment:
+      - DB_IP=<your_ip_address>
+  apis:
+    image: cijie/weather-apis:1.0.2
+    container_name: apis
+    environment:
+      - DB_IP=<your_ip_address>
+    ports:
+      - 3000:3000
+  web:
+    image: cijie/weather-ui:1.0.2
+    container_name: web
+    environment:
+      - APIS_IP=<your_ip_address>
+    ports:
+      - 80:80

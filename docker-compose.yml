@@ -1,0 +1,20 @@
+version: '2'
+services:
+  db:
+    build: ./database
+    container_name: db
+    ports:
+      - 3306:3306
+  crawler:
+    build: ./crawler
+    container_name: crawler
+  apis:
+    build: ./apis
+    container_name: apis
+    ports:
+      - 3000:3000
+  web:
+    build: ./web
+    container_name: web
+    ports:
+      - 80:80

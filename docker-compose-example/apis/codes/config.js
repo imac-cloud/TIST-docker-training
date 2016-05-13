@@ -1,6 +1,6 @@
 module.exports = {
   mysql: {
-    host: '<public_ip>',
+    host: 'DB_IP',
     user: 'imac',
     password: 'imac',
     database: 'weather'

@@ -3,7 +3,7 @@ const cheerio = require("cheerio");
 const mysql = require('mysql');
 
 const connection = mysql.createConnection({
-  host     : '<public_ip>',
+  host     : 'DB_IP',
   user     : 'imac',
   password : 'imac',
   database : 'weather'

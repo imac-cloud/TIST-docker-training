@@ -9,7 +9,7 @@ weather.controller('WeatherController', function ($rootScope, $scope, $http, $in
   function getWeather () {
     $http({
       method: 'GET',
-      url: 'http://<public_ip>:3000/now'
+      url: 'http://APIS_IP:3000/now'
     }).then(function successCallback(response) {
       $rootScope.state = {
         centigrade: response.data.centigrade,

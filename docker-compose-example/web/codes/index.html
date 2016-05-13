@@ -13,14 +13,14 @@
        <div class="col-md-4"></div>
        <div class="col-md-4">
          <h1>現在時間: {{ time.hour }}:{{ time.minute }}:{{ time.second }}</h1>
-         <h3 style="color: red">上次更新: {{ state.time }}</h3>
+         <h3 style="color: red">上次更新: {{ state.time || loading... }}</h3>
        </div>
        <div class="col-md-4"></div>
     </div>
     <div class="row">
       <div class="col-md-4" style="height: 20em;padding-top: 60px">
-        <h1 style="text-align: -webkit-right">{{ state.centigrade }}°C</h1>
-        <h1 style="text-align: -webkit-right">{{ state.fahrenheit }}°F</h1>
+        <h1 style="text-align: -webkit-right">{{ state.centigrade || 0 }}°C</h1>
+        <h1 style="text-align: -webkit-right">{{ state.fahrenheit || 0 }}°F</h1>
       </div>
       <div class="col-md-4" style="text-align: center">
         <div class="icon sun-shower" ng-show="state.sunShower">
@@ -61,20 +61,20 @@
       <div class="col-md-4" style="height: 20em;padding-top: 40px">
         <div>
           <img src="img/drop.png" alt="drop" style="float: left;margin-right: 10px">
-          <h3>{{ state.humidity }}</h3>
+          <h3>{{ state.humidity || 0 }}</h3>
         </div>
         <div>
           <img src="img/wind.png" alt="wind" style="float: left;margin-right: 10px">
-          <h3>>{{ state.wind_power }}</h3>
+          <h3>>{{ state.wind_power || 0 }}</h3>
         </div>
         <div>
           <img src="img/wind-blowing.png" alt="wind-blowing" style="float: left;margin-right: 10px">
-          <h3>>{{ state.wind_direction }}</h3>
+          <h3>>{{ state.wind_direction || 0 }}</h3>
         </div>
       </div>
     </div>
   </div>
 </body>
-<script src="angular.min.js"></script>
-<script src="index.js"></script>
+<script src="./angular.min.js"></script>
+<script src="./index.js"></script>
 </html>

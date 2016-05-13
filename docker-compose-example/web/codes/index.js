@@ -3,7 +3,7 @@ var weather = angular.module('weather', []);
 weather.controller('WeatherController', function ($rootScope, $scope, $http, $interval) {
   getWeather();
   getTime();
-  $interval(getWeather, 300000);
+  $interval(getWeather, 5000);
   $interval(getTime, 1000);
 
   function getWeather () {

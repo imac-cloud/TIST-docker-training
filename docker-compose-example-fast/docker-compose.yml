@@ -6,21 +6,21 @@ services:
     ports:
       - 3306:3306
   crawler:
-    image: cijie/weather-crawler:1.0.3
+    image: cijie/weather-crawler:1.0.4
     container_name: crawler
     environment:
-      - DB_IP=<your_ip_address>
+      - DB_IP=192.168.0.151
   apis:
     image: cijie/weather-apis:1.0.2
     container_name: apis
     environment:
-      - DB_IP=<your_ip_address>
+      - DB_IP=192.168.0.151
     ports:
       - 3000:3000
   web:
-    image: cijie/weather-ui:1.0.2
+    image: cijie/weather-ui:1.0.3
     container_name: web
     environment:
-      - APIS_IP=<your_ip_address>
+      - APIS_IP=192.168.0.151
     ports:
       - 80:80

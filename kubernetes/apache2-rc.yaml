@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: my-web
+spec:
+  replicas: 1
+  selector:
+    app: my-web
+  template:
+    metadata:
+      labels:
+        app: my-web
+    spec:
+      containers:
+      - name: my-web
+        image: kairen/my-web:0.1.0
+        ports:
+        - containerPort: 8081
